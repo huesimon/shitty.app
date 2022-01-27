@@ -28,6 +28,6 @@ class StorePostRequest extends FormRequest
      */
     public function rules()
     {
-        return $this->rulesArray;
+        return self::rulesArray;
     }
 }

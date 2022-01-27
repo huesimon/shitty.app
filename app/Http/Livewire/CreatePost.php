@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Http\Requests\StorePostRequest;
+use App\Services\PostService;
 use Livewire\Component;
 
 class CreatePost extends Component
@@ -16,9 +17,13 @@ class CreatePost extends Component
     // ];
     protected $rules = StorePostRequest::rulesArray;
 
-    public function store()
+    public function store(PostService $service)
     {
         $validated = $this->validate();
+
+        $result = $service->store($validated);
+
+        dd($result);
     }
 
     public function render()
