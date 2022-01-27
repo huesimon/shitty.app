@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\StorePostRequest;
-use App\Services\PostService;
+use App\Models\Post;
 use Livewire\Component;
+use App\Services\PostService;
+use App\Http\Requests\StorePostRequest;
 
 class CreatePost extends Component
 {
     public $title;
     public $description;
+    public $posts;
+
 
     // protected $rules = [
     //     'title' => 'required|min:3|max:100',
@@ -17,13 +20,23 @@ class CreatePost extends Component
     // ];
     protected $rules = StorePostRequest::rulesArray;
 
+    public function mount()
+    {
+        $this->posts = Post::all();
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     public function store(PostService $service)
     {
         $validated = $this->validate();
 
         $result = $service->store($validated);
 
-        dd($result);
+        $this->posts = Post::all();
     }
 
     public function render()

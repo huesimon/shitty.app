@@ -6,4 +6,12 @@
     <input class="bg-blue-500" wire:model='description' type="text" name="description" id="description">
     @error('description') <span class="error">{{ $message }}</span> @enderror
     <button wire:click='store' >Save</button>
+
+    @foreach($posts as $post)
+        <div class="flex flex-col">
+            <h1>Title: {{$post->title}}</h1>
+            <p>Description: {{$post->description}}</p>
+        </div>
+    @endforeach
+
 </div>
