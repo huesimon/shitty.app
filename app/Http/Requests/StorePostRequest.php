@@ -6,6 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
 {
+    public const rulesArray = [
+        'title' => 'required|min:3|max:100',
+        'description' => 'required|min:3|max:255',
+    ];
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +18,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +28,6 @@ class StorePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        return $this->rulesArray;
     }
 }

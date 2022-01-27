@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/livewire', function () {
+    return view('livewire');
+});
+
+
 Route::get('/wip', function () {
     return view('wip');
 });
