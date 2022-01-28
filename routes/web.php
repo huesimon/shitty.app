@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/tailwind', function () {
+    return view('tailwind');
+});
+
 Route::get('/livewire', function () {
     return view('livewire');
 });
