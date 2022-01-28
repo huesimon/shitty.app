@@ -18,7 +18,6 @@ class CreatePost extends Component
     //     'title' => 'required|min:3|max:100',
     //     'description' => 'required|min:3|max:255',
     // ];
-    protected $rules = StorePostRequest::rulesArray;
 
     public function mount()
     {
@@ -28,6 +27,11 @@ class CreatePost extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+    }
+
+    public function rules()
+    {
+        return (new StorePostRequest())->rules();
     }
 
     public function store(PostService $service)
