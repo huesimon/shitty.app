@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Scripts -->
+    <script defer src="https://unpkg.com/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
@@ -22,7 +23,6 @@
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
-
         <div class="min-h-full">
             <nav class="bg-indigo-600">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,11 +36,11 @@
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
-                                    <a href="#"
+                                    <a href={{ route('home') }}
                                         class="bg-indigo-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                        aria-current="page">Dashboard</a>
+                                        aria-current="page">Home</a>
 
-                                    <a href="#"
+                                    {{-- <a href="#"
                                         class="text-white hover:bg-indigo-500 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium">Team</a>
 
                                     <a href="#"
@@ -50,11 +50,12 @@
                                         class="text-white hover:bg-indigo-500 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
 
                                     <a href="#"
-                                        class="text-white hover:bg-indigo-500 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                                        class="text-white hover:bg-indigo-500 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium">Reports</a> --}}
                                 </div>
                             </div>
                         </div>
-                        <div class="hidden md:block">
+                        {{-- Profile section --}}
+                        {{-- <div class="hidden md:block">
                             <div class="ml-4 flex items-center md:ml-6">
                                 <button type="button"
                                     class="rounded-full bg-indigo-600 p-1 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600">
@@ -70,7 +71,7 @@
                                 <!-- Profile dropdown add links prop -->
                                 <x-partials.dropdown />
                             </div>
-                        </div>
+                        </div> --}}
                         <div
                             x-data=""
                             class="-mr-2 flex md:hidden">
@@ -116,33 +117,22 @@
             <main>
                 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
                     <!-- Replace with your content -->
-                    <div class="px-4 py-4 sm:px-0">
-                        <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-                    </div>
+                    {{ $slot }}
                     <!-- /End replace -->
                 </div>
             </main>
+            {{-- named slot for footer --}}
+            @if ($footer ?? false)
+            <footer class="fixed bottom-0 w-full bg-white shadow">
+                <div class="flex justify-center mx-auto max-w-7xl py-4 px-4 sm:px-6 lg:px-8">
+                    <div class="text-sm text-gray-500">
+                        {{ $footer ?? ''  }}
+                    </div>
+                </div>
+            </footer>
+            @endif
         </div>
-
-
-
-        {{-- OLD --}}
-        {{-- @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endif
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
-    </div> --}}
+    </div>
 
     @stack('modals')
 

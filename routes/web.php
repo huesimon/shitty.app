@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('components.post.index',[
+        'posts' => Post::all()
+    ]);
+})->name('home');
+
+Route::get('/b/{number_plate}', function ($number_plate) {
+    $posts = Post::where('number_plate', $number_plate)->get();
+
+    return $posts;
 });
+
+Route::resource('posts', PostController::class);
 
 Route::middleware([
     'auth:sanctum',

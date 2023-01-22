@@ -11,10 +11,10 @@
         class="md:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
             <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
-            <a href="#" class="bg-indigo-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                aria-current="page">Dashboard</a>
+            <a href= {{ route('home') }} class="bg-indigo-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                aria-current="page">Home</a>
 
-            <a href="#"
+            {{-- <a href="#"
                 class="text-white hover:bg-indigo-500 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Team</a>
 
             <a href="#"
@@ -24,9 +24,9 @@
                 class="text-white hover:bg-indigo-500 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
 
             <a href="#"
-                class="text-white hover:bg-indigo-500 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+                class="text-white hover:bg-indigo-500 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Reports</a> --}}
         </div>
-        <div class="border-t border-indigo-700 pt-4 pb-3">
+        {{-- <div class="border-t border-indigo-700 pt-4 pb-3">
             <div class="flex items-center px-5">
                 <div class="flex-shrink-0">
                     <img class="h-10 w-10 rounded-full"
@@ -60,6 +60,6 @@
                     class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-indigo-500 hover:bg-opacity-75">Sign
                     out</a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
