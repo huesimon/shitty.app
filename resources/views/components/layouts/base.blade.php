@@ -71,9 +71,13 @@
                                 <x-partials.dropdown />
                             </div>
                         </div>
-                        <div class="-mr-2 flex md:hidden">
+                        <div
+                            x-data=""
+                            class="-mr-2 flex md:hidden">
                             <!-- Mobile menu button -->
-                            <button type="button"
+                            <button
+                                @click="$dispatch('foo')"
+                                type="button"
                                 class="inline-flex items-center justify-center rounded-md bg-indigo-600 p-2 text-indigo-200 hover:bg-indigo-500 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                                 aria-controls="mobile-menu" aria-expanded="false">
                                 <span class="sr-only">Open main menu</span>
