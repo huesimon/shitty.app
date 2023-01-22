@@ -27,6 +27,10 @@ Route::get('/b/{number_plate}', function ($number_plate) {
     return $posts;
 });
 
+Route::post('/b/{post:number_plate}', function (Post $post) {
+    return $post->votes += 1;
+});
+
 Route::resource('posts', PostController::class);
 
 Route::middleware([
