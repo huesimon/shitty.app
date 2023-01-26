@@ -8,7 +8,7 @@
     <div class="flex flex-row justify-between">
         <div>
             <h3 class="mt-6 text-sm text-gray-500">
-                <a href="#">
+                <a href={{ route('posts_by_number_plate', $post->number_plate) }}>
                     {{ $post->number_plate }}
                 </a>
             </h3>

@@ -25,7 +25,7 @@ Route::get('/b/{number_plate}', function ($number_plate) {
     return view('components.post.index',[
         'posts' => Post::where('number_plate', $number_plate)->get()
     ]);
-});
+})->name('posts_by_number_plate');
 
 Route::post('/b/{post:number_plate}', function (Post $post) {
     return $post->votes += 1;
