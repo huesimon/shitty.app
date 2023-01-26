@@ -115,7 +115,20 @@
                 </div>
             </header>
             <main>
-                <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                <div class="
+                grid
+                mx-auto
+                sm:space-y-10
+                md:space-y-0
+                md:grid-cols-2
+                lg:grid-cols-3
+                gap-x-6
+                gap-y-10
+                max-w-7xl
+                py-6
+                px-6
+                lg:px-8
+                ">
                     <!-- Replace with your content -->
                     {{ $slot }}
                     <!-- /End replace -->

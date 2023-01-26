@@ -1,9 +1,9 @@
-<div class="">
+<div>
     <div
         class="h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
         <img src="{{ asset($post->photo) }}"
             alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-            class="h-full w-full object-cover object-center">
+            class="h-full w-full object-contain">
     </div>
     <div class="flex flex-row justify-between">
         <div>
