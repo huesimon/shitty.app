@@ -22,9 +22,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/b/{number_plate}', function ($number_plate) {
-    $posts = Post::where('number_plate', $number_plate)->get();
-
-    return $posts;
+    return view('components.post.index',[
+        'posts' => Post::where('number_plate', $number_plate)->get()
+    ]);
 });
 
 Route::post('/b/{post:number_plate}', function (Post $post) {
